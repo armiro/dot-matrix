@@ -5,7 +5,7 @@
 #define name_length 72
 #define direction_controller_pin 25
 #define speed_control_pin 24
-# define font_selector_pin 23
+#define font_selector_pin 23
 #define to_right 1
 #define to_left -1
 
@@ -234,7 +234,17 @@ void fullNameToShownName() {
 	}
 	// copy visible part of the fullName into shownName
 	for (int i = 0; i < width; i++) {
-		shownName[i] = fullName[(step + i) % name_length];
+		if (direction == 1){
+			if (step >= 0){
+				shownName[i] = fullName[(step + i)% name_length];
+			}
+			else{
+				shownName[i] = fullName[(name_length + step + i)% name_length];
+			}
+		}
+		else if (direction == -1){
+			shownName[i] = fullName[(name_length + step + i)% name_length];
+		}
 		// 'step' variable is used for shifting the name
 		// may wonder why the remainder sign (%) is used?
 		// when showing the name, it's actually shownName[i] = fullName[i]
@@ -249,7 +259,7 @@ void showShownName() {
 		// select the i-th column(via decoder) to show the character on it
 		IOSET0 = shownName[i] | (i << 16);
 		
-		delay(10);
+		delay(15);
 	}
 }
 
@@ -268,8 +278,8 @@ void slideTheName () {
 	if (step > name_length || step < -name_length) {
 		// if the name is completely slided then slide it again
 		// by resetting the step variable
-		tempStep = 0;
-		step = 0;
+		 tempStep = 0;
+		 step = 0;
 	}
 }
 
@@ -277,7 +287,7 @@ void reverseSlideDirection() {
 	// define the direction based on the direction controller pin
 	if (IOPIN0 & (1 << direction_controller_pin)) {
 		direction = to_right;
-	} 
+	}
 	else {
 		direction = to_left;
 	}
