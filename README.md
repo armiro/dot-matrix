@@ -8,7 +8,7 @@ This project is triggered for displaying rtl writing languages (persian, arabic)
 3. Proteus Professional (v8.6 or newer): www.labcenter.com/downloads
 ###### Note: These softwares are not free. Buy them or try to find a cracked vesion.
 
-### how to run?
+### How to run?
 Simply clone and extract the repo, open the `dot-matrix.uvproj`, build the project (F7);
 Open the `dot-matrix.pdsprj`, double click on the LPC2124 in the schematic, from the _program file_ browse for the location of the HEX file (_/dot-matrix/Objects/dot-matrix.hex_) and load it on the micro-controller, finally click on _play_ button in Proteus to see the project running.
 
