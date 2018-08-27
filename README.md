@@ -1,5 +1,5 @@
 # Running dot-matrix via ARM7 LPC21xx
-Simple running of 6 sticked-together 8-by-8 dot-matrices via NXP's LPC2124 ARM7 microcontroller.
+Simple running of 6 stuck-together 8-by-8 dot-matrices via NXP's LPC2124 ARM7 microcontroller.
 This project is triggered for displaying rtl writing languages (persian, arabic).
 
 ### Softwares required?
